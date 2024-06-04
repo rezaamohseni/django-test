@@ -20,7 +20,7 @@ class Category(models.Model):
     status = models.BooleanField(default=True)
     def __str__(self):
         return self.title
-class Option (models.Model):
+class Option(models.Model):
     title = models.CharField(max_length=100)
     status = models.BooleanField(default=True)
     def __str__(self):
@@ -30,8 +30,8 @@ class Service(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     Category = models.ManyToManyField(Category)
-    status = models.BooleanField(default=True)
     generals = models.ManyToManyField(Option)
+    status = models.BooleanField(default=True)
     price = models.IntegerField(default=0)
     counted_view = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)

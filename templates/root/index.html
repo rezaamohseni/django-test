@@ -194,21 +194,21 @@
           <h2>Services</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
+        {% for service in service %}
 
         <div class="row">
-          {% for service in service %}
           <div class="col-lg-4 col-md-6 icon-box">
             <img src={{service.image.url}} alt="">
             <div class="icon"><i class="bi bi-briefcase"></i></div>
             <h4 class="title"><a href="">{{service.title}}</a></h4>
             <p class="description">{{service.content}}</p>
-            <h4>{{service.price}}</h4>
-            <h4>{{service.}}</h4>
-            <h1>{{service.counted_view}}</h1>
+            <h2>price : {{service.price}}</h2>
+            <h3>started_at :{{service.created_at|date:'D d M o'}}</h3>
+            <h4>view : {{service.counted_view}}</h4>
           </div>
-          {% endfor %}
 
         </div>
+        {% endfor %}
 
       </div>
     </section><!-- End Services Section -->

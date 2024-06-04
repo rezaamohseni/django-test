@@ -58,9 +58,10 @@
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               {% for cat in category  %}
-              <li><a href="#">{{cat.title}}</a></li>
+              <li><a href={% url 'services:services' %}?category={{cat.title}}>{{cat.title}}</a></li>
+              {% endfor %}
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                {% endfor %}
+                
                 <ul>
                   
                   <li><a href="#">Deep Drop Down 1</a></li>

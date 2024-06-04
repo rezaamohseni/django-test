@@ -2,10 +2,13 @@ from django.shortcuts import render
 from .models import Service , Skill , Team , Category
 
 def home (request):
+    if request.GET.get('category') is not None:
+        all_services = Service.objects.filter(category__title = request.GET.get('category'))
+        
+    else:  
+        all_services = Service.objects.filter(status= True)
     context = {
-        'service' : Service.objects.filter(status = True),
-        'skill' : Skill.objects.filter(status = True),
-        'team' : Team.objects.filter(status = True),
-        'category' : Category.objects.filter(status = True)
-    }
+        'services': all_services,
+            
+        }
     return render(request , 'root/index.html' , context=context)
